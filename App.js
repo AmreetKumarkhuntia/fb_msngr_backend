@@ -15,12 +15,14 @@ const app_secret = process.env.APP_SECRET;
 const jwt_secret = process.env.JWT_SECRET;
 const monogo_URL = process.env.MONGO_URL;
 const frontend_URL = process.env.FRONTEND_URL;
+const myURL = process.env.MY_URL;
 const salt = bcrypt.genSaltSync(10);
+
 
 //SETUP APP
 const app = express();
 const cors_options = {
-    origin: frontend_URL,
+    origin: [frontend_URL,myURL],
     Credentials: true,
 };
 app.use(cors(cors_options));
