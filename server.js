@@ -17,7 +17,7 @@ const monogo_URL = process.env.MONGO_URL;
 const frontend_URL = process.env.FRONTEND_URL;
 const myURL = process.env.MY_URL;
 const salt = bcrypt.genSaltSync(10);
-
+const redirect_url = process.env.REDIRECT_URL;
 
 //SETUP APP
 const app = express();
@@ -59,7 +59,7 @@ app.get("/facebook/login", function (req, res) {
     const facebook = new Facebook({
         appId: app_id,
         appSecret: app_secret,
-        redirectUrl: `http://localhost:2000/facebook/callback/${currEmail}`,
+        redirectUrl: `${redirect_url}/facebook/callback/${currEmail}`,
         graphVersion: "v17.0",
     });
 
@@ -81,7 +81,7 @@ app.get("/facebook/callback/:email", async function (req, res) {
         const facebook = new Facebook({
             appId: app_id,
             appSecret: app_secret,
-            redirectUrl: `http://localhost:2000/facebook/callback/${currEmail}`,
+            redirectUrl: `${redirect_url}/facebook/callback/${currEmail}`,
             graphVersion: "v17.0",
         });
     
