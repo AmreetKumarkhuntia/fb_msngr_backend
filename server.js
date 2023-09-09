@@ -22,7 +22,7 @@ const salt = bcrypt.genSaltSync(10);
 //SETUP APP
 const app = express();
 const cors_options = {
-    origin: [frontend_URL,myURL],
+    origin: `*`,
     Credentials: true,
 };
 app.use(cors(cors_options));
