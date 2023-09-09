@@ -250,6 +250,10 @@ app.get('/login', async (req, res) => {
 });
 
 
+app.get('/',()=>{
+    res.send("app working").status(200);
+})
+
 //port on which to connect
 app.listen(port, async () => {
     try{
