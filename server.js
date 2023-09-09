@@ -250,7 +250,7 @@ app.get('/login', async (req, res) => {
 });
 
 
-app.get('/',()=>{
+app.get('/',(req,res)=>{
     res.send("app working").status(200);
 })
 
